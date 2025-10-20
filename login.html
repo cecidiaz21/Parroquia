@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Acceso Empleados - Parroquia NSA</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container">
+      <div class="brand"><div class="logo">NSA</div><div><div style="font-weight:700">Parroquia NSA</div><div style="font-size:12px;color:#cfe8ff">El Golf · Las Condes</div></div></div>
+      <nav class="links">
+        <a href="index.html">Inicio</a>
+        <a href="donaciones.html">Donaciones</a>
+        <a href="login.html">Acceso empleados</a>
+      </nav>
+      <button class="menu-toggle">☰</button>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <section id="login-section" class="card" style="max-width:480px;margin:0 auto">
+        <h2>Acceso Empleados</h2>
+        <p class="text-muted">Introduce tus credenciales para acceder al panel.</p>
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label">Correo</label>
+            <input id="email" class="input" type="email" required value="" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Contraseña</label>
+            <input id="password" class="input" type="password" required />
+          </div>
+          <div id="login-error" style="color:#b91c1c;margin-bottom:8px"></div>
+          <button class="btn btn-primary" type="submit">Ingresar</button>
+        </form>
+      </section>
+
+      <section id="admin-section" style="display:none;margin-top:1.5rem">
+        <div class="card">
+          <h2 id="admin-title">Panel Administrativo</h2>
+          <p class="text-muted">Seleccione una sección para ver registros y generar certificados.</p>
+          <div class="cards" style="margin-top:1rem">
+            <div class="admin-card" onclick="renderSection('bautismos')">Bautismos</div>
+            <div class="admin-card" onclick="renderSection('comuniones')">Comuniones</div>
+            <div class="admin-card" onclick="renderSection('confirmaciones')">Confirmaciones</div>
+            <div class="admin-card" onclick="renderSection('matrimonios')">Matrimonios</div>
+          </div>
+
+          <div style="margin-top:1rem">
+            <input id="admin-search" class="input" placeholder="Buscar por nombre..." oninput="(function(){ const q=this.value.toLowerCase(); const all=window._adminData || {}; Object.keys(all).forEach(k=>{ /* no-op */ }); // search handled in UI if needed })()" />
+          </div>
+
+          <div style="margin-top:1rem;overflow:auto">
+            <table class="table" style="min-width:700px">
+              <thead><tr><th>Nombre</th><th>Fecha</th><th>Lugar</th><th>Observaciones</th><th>Acciones</th></tr></thead>
+              <tbody id="records-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="container">&copy; Parroquia Nuestra Señora de los Ángeles</div></footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="assets/js/login.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
