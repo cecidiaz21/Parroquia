@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-navy: #0A2463;
+  --color-sky: #3E92CC;
+}
+
+body {
+  @apply text-gray-800;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+/* Estilos personalizados para botones */
+.btn {
+  @apply px-4 py-2 rounded-lg transition-colors duration-200;
+}
+
+.btn-primary {
+  @apply bg-navy text-white hover:bg-sky;
+}
+
+.btn-outline {
+  @apply border-2 border-navy text-navy hover:bg-navy hover:text-white;
+}
+
+/* Estilos para headings */
+h1, h2, h3, h4, h5, h6 {
+  @apply text-navy font-semibold;
+}
+
+/* Estilos para enlaces */
+a {
+  @apply transition-colors duration-200;
+}
+
+/* Estilos para forms */
+.form-input {
+  @apply w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-sky focus:border-sky outline-none;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
